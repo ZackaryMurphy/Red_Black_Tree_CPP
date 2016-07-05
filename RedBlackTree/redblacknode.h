@@ -23,6 +23,10 @@ class RedBlackNode {
         
         RedBlackNode* get_right();
         
+        RedBlackNode* get_grandparent();
+        
+        RedBlackNode* get_uncle();
+        
         k get_key();
         
         v get_value();
@@ -44,7 +48,7 @@ class RedBlackNode {
 
 template <class k, class v>
 RedBlackNode<k,v>::RedBlackNode(k contained_key, v contained_value) :
-parent(nullptr), left(nullptr), right(nullptr), key(contained_key), value(contained_value), color(RedBlackColor::BLACK) { 
+parent(nullptr), left(nullptr), right(nullptr), key(contained_key), value(contained_value), color(RedBlackColor::RED) { 
 }
 
 template <class k, class v>
@@ -63,6 +67,25 @@ RedBlackNode<k,v>* RedBlackNode<k,v>::get_left() {
 template <class k, class v>
 RedBlackNode<k,v>* RedBlackNode<k,v>::get_right() {
     return right;
+}
+
+template <class k, class v>
+RedBlackNode<k,v>* RedBlackNode<k,v>::get_grandparent() {
+    if ((parent != nullptr) && (parent->get_parent() != nullptr)) {
+        return parent->get_parent();
+    }
+    return nullptr;
+}
+
+template <class k, class v>
+RedBlackNode<k,v>* RedBlackNode<k,v>::get_uncle() {
+    if (get_grandparent() == nullptr) {
+        return nullptr;
+    }
+    if (parent == (get_grandparent()->get_right())) {
+        return (get_grandparent()->get_left());
+    }
+    return (get_grandparent()->get_right());
 }
 
 template <class k, class v>
