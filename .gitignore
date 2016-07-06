@@ -1,0 +1,13 @@
+*.stackdump
+RedBlackTree/nbproject/private/private.xml
+*.mk
+RedBlackTree/nbproject/private/launcher.properties
+RedBlackTree/nbproject/project.xml
+RedBlackTree/nbproject/private/configurations.xml
+RedBlackTree/nbproject/Package-Release.bash
+RedBlackTree/nbproject/Package-Debug.bash
+RedBlackTree/nbproject/configurations.xml
+*.exe
+*.d
+RedBlackTree/.dep.inc
+*.o
